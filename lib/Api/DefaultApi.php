@@ -138,7 +138,7 @@ class DefaultApi
                 '/hello-world'
             );
 
-            return [null, $statusCode, $httpHeader];
+            return [$response, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
@@ -225,7 +225,7 @@ class DefaultApi
                 '/lead/treppenlift'
             );
 
-            return [null, $statusCode, $httpHeader];
+            return [$response, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
