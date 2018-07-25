@@ -1,6 +1,6 @@
 <?php
 /**
- * Treppenlift
+ * Hausnotruf
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \PflegeDe\Partner\ObjectSerializer;
 
 /**
- * Treppenlift Class Doc Comment
+ * Hausnotruf Class Doc Comment
  *
  * @category Class
  * @package  PflegeDe\Partner
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Treppenlift implements ModelInterface, ArrayAccess
+class Hausnotruf implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Treppenlift implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Treppenlift';
+    protected static $swaggerModelName = 'Hausnotruf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,17 +62,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         'familyName' => 'string',
         'email' => 'string',
         'phoneNumber' => 'string',
-        'phoneNumber2' => 'string',
         'zip' => 'string',
         'city' => 'string',
-        'liftType' => 'string',
-        'mountingLocation' => 'string',
-        'obstacle' => 'string',
-        'floor' => 'string',
-        'livingSituation' => 'string',
-        'careLevelState' => 'string',
-        'carePersonWeight' => 'string',
+        'contactStreet' => 'string',
+        'deviceLocation' => 'string',
         'targetPerson' => 'string',
+        'emergencyContact' => 'string',
+        'urgency' => 'string',
+        'carePersonCareLevel' => 'string',
         'pageUrl' => 'string'
     ];
 
@@ -87,17 +84,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         'familyName' => 'string',
         'email' => 'email',
         'phoneNumber' => 'string',
-        'phoneNumber2' => 'string',
         'zip' => 'string',
         'city' => 'string',
-        'liftType' => 'string',
-        'mountingLocation' => 'string',
-        'obstacle' => 'string',
-        'floor' => 'string',
-        'livingSituation' => 'string',
-        'careLevelState' => 'string',
-        'carePersonWeight' => 'string',
+        'contactStreet' => 'string',
+        'deviceLocation' => 'string',
         'targetPerson' => 'string',
+        'emergencyContact' => 'string',
+        'urgency' => 'string',
+        'carePersonCareLevel' => 'string',
         'pageUrl' => 'string'
     ];
 
@@ -133,17 +127,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         'familyName' => 'family_name',
         'email' => 'email',
         'phoneNumber' => 'phone_number',
-        'phoneNumber2' => 'phone_number_2',
         'zip' => 'zip',
         'city' => 'city',
-        'liftType' => 'lift_type',
-        'mountingLocation' => 'mounting_location',
-        'obstacle' => 'obstacle',
-        'floor' => 'floor',
-        'livingSituation' => 'living_situation',
-        'careLevelState' => 'care_level_state',
-        'carePersonWeight' => 'care_person_weight',
+        'contactStreet' => 'contact_street',
+        'deviceLocation' => 'device_location',
         'targetPerson' => 'target_person',
+        'emergencyContact' => 'emergency_contact',
+        'urgency' => 'urgency',
+        'carePersonCareLevel' => 'care_person_care_level',
         'pageUrl' => 'page_url'
     ];
 
@@ -158,17 +149,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         'familyName' => 'setFamilyName',
         'email' => 'setEmail',
         'phoneNumber' => 'setPhoneNumber',
-        'phoneNumber2' => 'setPhoneNumber2',
         'zip' => 'setZip',
         'city' => 'setCity',
-        'liftType' => 'setLiftType',
-        'mountingLocation' => 'setMountingLocation',
-        'obstacle' => 'setObstacle',
-        'floor' => 'setFloor',
-        'livingSituation' => 'setLivingSituation',
-        'careLevelState' => 'setCareLevelState',
-        'carePersonWeight' => 'setCarePersonWeight',
+        'contactStreet' => 'setContactStreet',
+        'deviceLocation' => 'setDeviceLocation',
         'targetPerson' => 'setTargetPerson',
+        'emergencyContact' => 'setEmergencyContact',
+        'urgency' => 'setUrgency',
+        'carePersonCareLevel' => 'setCarePersonCareLevel',
         'pageUrl' => 'setPageUrl'
     ];
 
@@ -183,17 +171,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         'familyName' => 'getFamilyName',
         'email' => 'getEmail',
         'phoneNumber' => 'getPhoneNumber',
-        'phoneNumber2' => 'getPhoneNumber2',
         'zip' => 'getZip',
         'city' => 'getCity',
-        'liftType' => 'getLiftType',
-        'mountingLocation' => 'getMountingLocation',
-        'obstacle' => 'getObstacle',
-        'floor' => 'getFloor',
-        'livingSituation' => 'getLivingSituation',
-        'careLevelState' => 'getCareLevelState',
-        'carePersonWeight' => 'getCarePersonWeight',
+        'contactStreet' => 'getContactStreet',
+        'deviceLocation' => 'getDeviceLocation',
         'targetPerson' => 'getTargetPerson',
+        'emergencyContact' => 'getEmergencyContact',
+        'urgency' => 'getUrgency',
+        'carePersonCareLevel' => 'getCarePersonCareLevel',
         'pageUrl' => 'getPageUrl'
     ];
 
@@ -240,34 +225,24 @@ class Treppenlift implements ModelInterface, ArrayAccess
 
     const SALUTATION_HERR = 'Herr';
     const SALUTATION_FRAU = 'Frau';
-    const LIFT_TYPE_SITZLIFT = 'Sitzlift';
-    const LIFT_TYPE_PLATTFORMLIFT = 'Plattformlift';
-    const LIFT_TYPE_HUBLIFT = 'Hublift';
-    const LIFT_TYPE_NOCH_UNKLAR = 'Noch_unklar';
-    const MOUNTING_LOCATION_INNEN = 'Innen';
-    const MOUNTING_LOCATION_AUSSEN = 'Außen';
-    const MOUNTING_LOCATION_NOCH_UNKLAR = 'Noch_unklar';
-    const OBSTACLE_GERADE_TREPPE = 'Gerade_Treppe';
-    const OBSTACLE_KURVIGE_TREPPE = 'Kurvige_Treppe';
-    const OBSTACLE_SONSTIGES = 'Sonstiges';
-    const OBSTACLE_NOCH_UNKLAR = 'Noch_unklar';
-    const FLOOR__1_ETAGE = '1_Etage';
-    const FLOOR__2_ETAGEN = '2_Etagen';
-    const FLOOR__3_ETAGEN_O_MEHR = '3_Etagen_o_mehr';
-    const FLOOR_NOCH_UNKLAR = 'Noch_unklar';
-    const LIVING_SITUATION_EINFAMILIENHAUS__EIGENTUM = 'Einfamilienhaus (Eigentum)';
-    const LIVING_SITUATION_EINFAMILIENHAUS__MIETE = 'Einfamilienhaus (Miete)';
-    const LIVING_SITUATION_MIETWOHNUNG = 'Mietwohnung';
-    const LIVING_SITUATION_EIGENTUMSWOHNUNG = 'Eigentumswohnung';
-    const CARE_LEVEL_STATE_JA = 'Ja';
-    const CARE_LEVEL_STATE_NEIN = 'Nein';
-    const CARE_LEVEL_STATE_BEANTRAGT = 'Beantragt';
-    const CARE_LEVEL_STATE_UNBEKANNT = 'Unbekannt';
-    const CARE_PERSON_WEIGHT_WENIGER_ALS_130KG = 'Weniger_als_130kg';
-    const CARE_PERSON_WEIGHT_MEHR_ALS_130KG = 'Mehr_als_130kg';
-    const CARE_PERSON_WEIGHT_NOCH_UNKLAR = 'Noch_unklar';
-    const TARGET_PERSON_JEMAND_ANDEREN = 'Für jemand anderen';
+    const DEVICE_LOCATION_ZU_HAUSE = 'Zu Hause';
+    const DEVICE_LOCATION_UNTERWEGS = 'Unterwegs';
+    const DEVICE_LOCATION_ZU_HAUSE__UNTERWEGS = 'Zu Hause & unterwegs';
+    const DEVICE_LOCATION_UNKLAR = 'Unklar';
     const TARGET_PERSON_MICH = 'Für mich';
+    const TARGET_PERSON_JEMAND_ANDEREN = 'Für jemand anderen';
+    const EMERGENCY_CONTACT_ANGEHRIGER = 'Angehöriger';
+    const EMERGENCY_CONTACT_NOTRUFZENTRALE = 'Notrufzentrale';
+    const EMERGENCY_CONTACT_BEIDE = 'Beide';
+    const EMERGENCY_CONTACT_UNKLAR = 'Unklar';
+    const URGENCY_SCHNELLSTMGLICH = 'Schnellstmöglich';
+    const URGENCY_INNERHALB_EINES_MONATS = 'Innerhalb eines Monats';
+    const URGENCY_IN_2_4_MONATEN = 'In 2-4 Monaten';
+    const URGENCY_UNKLAR = 'Unklar';
+    const CARE_PERSON_CARE_LEVEL_JA = 'Ja';
+    const CARE_PERSON_CARE_LEVEL_NEIN = 'Nein';
+    const CARE_PERSON_CARE_LEVEL_BEANTRAGT = 'Beantragt';
+    const CARE_PERSON_CARE_LEVEL_UNKLAR = 'Unklar';
     
 
     
@@ -289,101 +264,13 @@ class Treppenlift implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getLiftTypeAllowableValues()
+    public function getDeviceLocationAllowableValues()
     {
         return [
-            self::LIFT_TYPE_SITZLIFT,
-            self::LIFT_TYPE_PLATTFORMLIFT,
-            self::LIFT_TYPE_HUBLIFT,
-            self::LIFT_TYPE_NOCH_UNKLAR,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMountingLocationAllowableValues()
-    {
-        return [
-            self::MOUNTING_LOCATION_INNEN,
-            self::MOUNTING_LOCATION_AUSSEN,
-            self::MOUNTING_LOCATION_NOCH_UNKLAR,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getObstacleAllowableValues()
-    {
-        return [
-            self::OBSTACLE_GERADE_TREPPE,
-            self::OBSTACLE_KURVIGE_TREPPE,
-            self::OBSTACLE_SONSTIGES,
-            self::OBSTACLE_NOCH_UNKLAR,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFloorAllowableValues()
-    {
-        return [
-            self::FLOOR__1_ETAGE,
-            self::FLOOR__2_ETAGEN,
-            self::FLOOR__3_ETAGEN_O_MEHR,
-            self::FLOOR_NOCH_UNKLAR,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getLivingSituationAllowableValues()
-    {
-        return [
-            self::LIVING_SITUATION_EINFAMILIENHAUS__EIGENTUM,
-            self::LIVING_SITUATION_EINFAMILIENHAUS__MIETE,
-            self::LIVING_SITUATION_MIETWOHNUNG,
-            self::LIVING_SITUATION_EIGENTUMSWOHNUNG,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCareLevelStateAllowableValues()
-    {
-        return [
-            self::CARE_LEVEL_STATE_JA,
-            self::CARE_LEVEL_STATE_NEIN,
-            self::CARE_LEVEL_STATE_BEANTRAGT,
-            self::CARE_LEVEL_STATE_UNBEKANNT,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCarePersonWeightAllowableValues()
-    {
-        return [
-            self::CARE_PERSON_WEIGHT_WENIGER_ALS_130KG,
-            self::CARE_PERSON_WEIGHT_MEHR_ALS_130KG,
-            self::CARE_PERSON_WEIGHT_NOCH_UNKLAR,
+            self::DEVICE_LOCATION_ZU_HAUSE,
+            self::DEVICE_LOCATION_UNTERWEGS,
+            self::DEVICE_LOCATION_ZU_HAUSE__UNTERWEGS,
+            self::DEVICE_LOCATION_UNKLAR,
         ];
     }
     
@@ -395,8 +282,53 @@ class Treppenlift implements ModelInterface, ArrayAccess
     public function getTargetPersonAllowableValues()
     {
         return [
-            self::TARGET_PERSON_JEMAND_ANDEREN,
             self::TARGET_PERSON_MICH,
+            self::TARGET_PERSON_JEMAND_ANDEREN,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEmergencyContactAllowableValues()
+    {
+        return [
+            self::EMERGENCY_CONTACT_ANGEHRIGER,
+            self::EMERGENCY_CONTACT_NOTRUFZENTRALE,
+            self::EMERGENCY_CONTACT_BEIDE,
+            self::EMERGENCY_CONTACT_UNKLAR,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUrgencyAllowableValues()
+    {
+        return [
+            self::URGENCY_SCHNELLSTMGLICH,
+            self::URGENCY_INNERHALB_EINES_MONATS,
+            self::URGENCY_IN_2_4_MONATEN,
+            self::URGENCY_UNKLAR,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCarePersonCareLevelAllowableValues()
+    {
+        return [
+            self::CARE_PERSON_CARE_LEVEL_JA,
+            self::CARE_PERSON_CARE_LEVEL_NEIN,
+            self::CARE_PERSON_CARE_LEVEL_BEANTRAGT,
+            self::CARE_PERSON_CARE_LEVEL_UNKLAR,
         ];
     }
     
@@ -421,17 +353,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         $this->container['familyName'] = isset($data['familyName']) ? $data['familyName'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['phoneNumber'] = isset($data['phoneNumber']) ? $data['phoneNumber'] : null;
-        $this->container['phoneNumber2'] = isset($data['phoneNumber2']) ? $data['phoneNumber2'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['liftType'] = isset($data['liftType']) ? $data['liftType'] : null;
-        $this->container['mountingLocation'] = isset($data['mountingLocation']) ? $data['mountingLocation'] : null;
-        $this->container['obstacle'] = isset($data['obstacle']) ? $data['obstacle'] : null;
-        $this->container['floor'] = isset($data['floor']) ? $data['floor'] : null;
-        $this->container['livingSituation'] = isset($data['livingSituation']) ? $data['livingSituation'] : null;
-        $this->container['careLevelState'] = isset($data['careLevelState']) ? $data['careLevelState'] : null;
-        $this->container['carePersonWeight'] = isset($data['carePersonWeight']) ? $data['carePersonWeight'] : null;
+        $this->container['contactStreet'] = isset($data['contactStreet']) ? $data['contactStreet'] : null;
+        $this->container['deviceLocation'] = isset($data['deviceLocation']) ? $data['deviceLocation'] : null;
         $this->container['targetPerson'] = isset($data['targetPerson']) ? $data['targetPerson'] : null;
+        $this->container['emergencyContact'] = isset($data['emergencyContact']) ? $data['emergencyContact'] : null;
+        $this->container['urgency'] = isset($data['urgency']) ? $data['urgency'] : null;
+        $this->container['carePersonCareLevel'] = isset($data['carePersonCareLevel']) ? $data['carePersonCareLevel'] : null;
         $this->container['pageUrl'] = isset($data['pageUrl']) ? $data['pageUrl'] : null;
     }
 
@@ -471,10 +400,6 @@ class Treppenlift implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'phoneNumber', must be conform to the pattern /[0-9 \/-]/.";
         }
 
-        if (!is_null($this->container['phoneNumber2']) && !preg_match("/[0-9 \/-]/", $this->container['phoneNumber2'])) {
-            $invalidProperties[] = "invalid value for 'phoneNumber2', must be conform to the pattern /[0-9 \/-]/.";
-        }
-
         if ($this->container['zip'] === null) {
             $invalidProperties[] = "'zip' can't be null";
         }
@@ -493,79 +418,16 @@ class Treppenlift implements ModelInterface, ArrayAccess
         if ($this->container['city'] === null) {
             $invalidProperties[] = "'city' can't be null";
         }
-        if ($this->container['liftType'] === null) {
-            $invalidProperties[] = "'liftType' can't be null";
+        if ($this->container['contactStreet'] === null) {
+            $invalidProperties[] = "'contactStreet' can't be null";
         }
-        $allowedValues = $this->getLiftTypeAllowableValues();
-        if (!in_array($this->container['liftType'], $allowedValues)) {
+        if ($this->container['deviceLocation'] === null) {
+            $invalidProperties[] = "'deviceLocation' can't be null";
+        }
+        $allowedValues = $this->getDeviceLocationAllowableValues();
+        if (!in_array($this->container['deviceLocation'], $allowedValues)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'liftType', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['mountingLocation'] === null) {
-            $invalidProperties[] = "'mountingLocation' can't be null";
-        }
-        $allowedValues = $this->getMountingLocationAllowableValues();
-        if (!in_array($this->container['mountingLocation'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'mountingLocation', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['obstacle'] === null) {
-            $invalidProperties[] = "'obstacle' can't be null";
-        }
-        $allowedValues = $this->getObstacleAllowableValues();
-        if (!in_array($this->container['obstacle'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'obstacle', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['floor'] === null) {
-            $invalidProperties[] = "'floor' can't be null";
-        }
-        $allowedValues = $this->getFloorAllowableValues();
-        if (!in_array($this->container['floor'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'floor', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['livingSituation'] === null) {
-            $invalidProperties[] = "'livingSituation' can't be null";
-        }
-        $allowedValues = $this->getLivingSituationAllowableValues();
-        if (!in_array($this->container['livingSituation'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'livingSituation', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['careLevelState'] === null) {
-            $invalidProperties[] = "'careLevelState' can't be null";
-        }
-        $allowedValues = $this->getCareLevelStateAllowableValues();
-        if (!in_array($this->container['careLevelState'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'careLevelState', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['carePersonWeight'] === null) {
-            $invalidProperties[] = "'carePersonWeight' can't be null";
-        }
-        $allowedValues = $this->getCarePersonWeightAllowableValues();
-        if (!in_array($this->container['carePersonWeight'], $allowedValues)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'carePersonWeight', must be one of '%s'",
+                "invalid value for 'deviceLocation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -577,6 +439,39 @@ class Treppenlift implements ModelInterface, ArrayAccess
         if (!in_array($this->container['targetPerson'], $allowedValues)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'targetPerson', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['emergencyContact'] === null) {
+            $invalidProperties[] = "'emergencyContact' can't be null";
+        }
+        $allowedValues = $this->getEmergencyContactAllowableValues();
+        if (!in_array($this->container['emergencyContact'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'emergencyContact', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['urgency'] === null) {
+            $invalidProperties[] = "'urgency' can't be null";
+        }
+        $allowedValues = $this->getUrgencyAllowableValues();
+        if (!in_array($this->container['urgency'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'urgency', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['carePersonCareLevel'] === null) {
+            $invalidProperties[] = "'carePersonCareLevel' can't be null";
+        }
+        $allowedValues = $this->getCarePersonCareLevelAllowableValues();
+        if (!in_array($this->container['carePersonCareLevel'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'carePersonCareLevel', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -618,9 +513,6 @@ class Treppenlift implements ModelInterface, ArrayAccess
         if (!preg_match("/[0-9 \/-]/", $this->container['phoneNumber'])) {
             return false;
         }
-        if (!preg_match("/[0-9 \/-]/", $this->container['phoneNumber2'])) {
-            return false;
-        }
         if ($this->container['zip'] === null) {
             return false;
         }
@@ -636,53 +528,14 @@ class Treppenlift implements ModelInterface, ArrayAccess
         if ($this->container['city'] === null) {
             return false;
         }
-        if ($this->container['liftType'] === null) {
+        if ($this->container['contactStreet'] === null) {
             return false;
         }
-        $allowedValues = $this->getLiftTypeAllowableValues();
-        if (!in_array($this->container['liftType'], $allowedValues)) {
+        if ($this->container['deviceLocation'] === null) {
             return false;
         }
-        if ($this->container['mountingLocation'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getMountingLocationAllowableValues();
-        if (!in_array($this->container['mountingLocation'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['obstacle'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getObstacleAllowableValues();
-        if (!in_array($this->container['obstacle'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['floor'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getFloorAllowableValues();
-        if (!in_array($this->container['floor'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['livingSituation'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getLivingSituationAllowableValues();
-        if (!in_array($this->container['livingSituation'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['careLevelState'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getCareLevelStateAllowableValues();
-        if (!in_array($this->container['careLevelState'], $allowedValues)) {
-            return false;
-        }
-        if ($this->container['carePersonWeight'] === null) {
-            return false;
-        }
-        $allowedValues = $this->getCarePersonWeightAllowableValues();
-        if (!in_array($this->container['carePersonWeight'], $allowedValues)) {
+        $allowedValues = $this->getDeviceLocationAllowableValues();
+        if (!in_array($this->container['deviceLocation'], $allowedValues)) {
             return false;
         }
         if ($this->container['targetPerson'] === null) {
@@ -690,6 +543,27 @@ class Treppenlift implements ModelInterface, ArrayAccess
         }
         $allowedValues = $this->getTargetPersonAllowableValues();
         if (!in_array($this->container['targetPerson'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['emergencyContact'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getEmergencyContactAllowableValues();
+        if (!in_array($this->container['emergencyContact'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['urgency'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getUrgencyAllowableValues();
+        if (!in_array($this->container['urgency'], $allowedValues)) {
+            return false;
+        }
+        if ($this->container['carePersonCareLevel'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getCarePersonCareLevelAllowableValues();
+        if (!in_array($this->container['carePersonCareLevel'], $allowedValues)) {
             return false;
         }
         if ($this->container['pageUrl'] === null) {
@@ -825,39 +699,10 @@ class Treppenlift implements ModelInterface, ArrayAccess
     {
 
         if ((!preg_match("/[0-9 \/-]/", $phoneNumber))) {
-            throw new \InvalidArgumentException("invalid value for $phoneNumber when calling Treppenlift., must conform to the pattern /[0-9 \/-]/.");
+            throw new \InvalidArgumentException("invalid value for $phoneNumber when calling Hausnotruf., must conform to the pattern /[0-9 \/-]/.");
         }
 
         $this->container['phoneNumber'] = $phoneNumber;
-
-        return $this;
-    }
-
-    /**
-     * Gets phoneNumber2
-     *
-     * @return string
-     */
-    public function getPhoneNumber2()
-    {
-        return $this->container['phoneNumber2'];
-    }
-
-    /**
-     * Sets phoneNumber2
-     *
-     * @param string $phoneNumber2 Alternative Telefonnummer
-     *
-     * @return $this
-     */
-    public function setPhoneNumber2($phoneNumber2)
-    {
-
-        if (!is_null($phoneNumber2) && (!preg_match("/[0-9 \/-]/", $phoneNumber2))) {
-            throw new \InvalidArgumentException("invalid value for $phoneNumber2 when calling Treppenlift., must conform to the pattern /[0-9 \/-]/.");
-        }
-
-        $this->container['phoneNumber2'] = $phoneNumber2;
 
         return $this;
     }
@@ -882,13 +727,13 @@ class Treppenlift implements ModelInterface, ArrayAccess
     public function setZip($zip)
     {
         if ((strlen($zip) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $zip when calling Treppenlift., must be smaller than or equal to 5.');
+            throw new \InvalidArgumentException('invalid length for $zip when calling Hausnotruf., must be smaller than or equal to 5.');
         }
         if ((strlen($zip) < 4)) {
-            throw new \InvalidArgumentException('invalid length for $zip when calling Treppenlift., must be bigger than or equal to 4.');
+            throw new \InvalidArgumentException('invalid length for $zip when calling Hausnotruf., must be bigger than or equal to 4.');
         }
         if ((!preg_match("/[0-9]{4,5}/", $zip))) {
-            throw new \InvalidArgumentException("invalid value for $zip when calling Treppenlift., must conform to the pattern /[0-9]{4,5}/.");
+            throw new \InvalidArgumentException("invalid value for $zip when calling Hausnotruf., must conform to the pattern /[0-9]{4,5}/.");
         }
 
         $this->container['zip'] = $zip;
@@ -921,232 +766,58 @@ class Treppenlift implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets liftType
+     * Gets contactStreet
      *
      * @return string
      */
-    public function getLiftType()
+    public function getContactStreet()
     {
-        return $this->container['liftType'];
+        return $this->container['contactStreet'];
     }
 
     /**
-     * Sets liftType
+     * Sets contactStreet
      *
-     * @param string $liftType Was für einen Treppenlift suchen Sie?
+     * @param string $contactStreet Straße & Hausnummer
      *
      * @return $this
      */
-    public function setLiftType($liftType)
+    public function setContactStreet($contactStreet)
     {
-        $allowedValues = $this->getLiftTypeAllowableValues();
-        if (!in_array($liftType, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'liftType', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['liftType'] = $liftType;
+        $this->container['contactStreet'] = $contactStreet;
 
         return $this;
     }
 
     /**
-     * Gets mountingLocation
+     * Gets deviceLocation
      *
      * @return string
      */
-    public function getMountingLocation()
+    public function getDeviceLocation()
     {
-        return $this->container['mountingLocation'];
+        return $this->container['deviceLocation'];
     }
 
     /**
-     * Sets mountingLocation
+     * Sets deviceLocation
      *
-     * @param string $mountingLocation Wo soll der Lift montiert werden?
+     * @param string $deviceLocation Wo wird die Notruflösung voraussichtlich genutzt?
      *
      * @return $this
      */
-    public function setMountingLocation($mountingLocation)
+    public function setDeviceLocation($deviceLocation)
     {
-        $allowedValues = $this->getMountingLocationAllowableValues();
-        if (!in_array($mountingLocation, $allowedValues)) {
+        $allowedValues = $this->getDeviceLocationAllowableValues();
+        if (!in_array($deviceLocation, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'mountingLocation', must be one of '%s'",
+                    "Invalid value for 'deviceLocation', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['mountingLocation'] = $mountingLocation;
-
-        return $this;
-    }
-
-    /**
-     * Gets obstacle
-     *
-     * @return string
-     */
-    public function getObstacle()
-    {
-        return $this->container['obstacle'];
-    }
-
-    /**
-     * Sets obstacle
-     *
-     * @param string $obstacle Welche Form hat die Treppe?
-     *
-     * @return $this
-     */
-    public function setObstacle($obstacle)
-    {
-        $allowedValues = $this->getObstacleAllowableValues();
-        if (!in_array($obstacle, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'obstacle', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['obstacle'] = $obstacle;
-
-        return $this;
-    }
-
-    /**
-     * Gets floor
-     *
-     * @return string
-     */
-    public function getFloor()
-    {
-        return $this->container['floor'];
-    }
-
-    /**
-     * Sets floor
-     *
-     * @param string $floor Für wie viele Etagen ist der Lift gedacht?
-     *
-     * @return $this
-     */
-    public function setFloor($floor)
-    {
-        $allowedValues = $this->getFloorAllowableValues();
-        if (!in_array($floor, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'floor', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['floor'] = $floor;
-
-        return $this;
-    }
-
-    /**
-     * Gets livingSituation
-     *
-     * @return string
-     */
-    public function getLivingSituation()
-    {
-        return $this->container['livingSituation'];
-    }
-
-    /**
-     * Sets livingSituation
-     *
-     * @param string $livingSituation Wie ist die derzeitige häusliche Situation?
-     *
-     * @return $this
-     */
-    public function setLivingSituation($livingSituation)
-    {
-        $allowedValues = $this->getLivingSituationAllowableValues();
-        if (!in_array($livingSituation, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'livingSituation', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['livingSituation'] = $livingSituation;
-
-        return $this;
-    }
-
-    /**
-     * Gets careLevelState
-     *
-     * @return string
-     */
-    public function getCareLevelState()
-    {
-        return $this->container['careLevelState'];
-    }
-
-    /**
-     * Sets careLevelState
-     *
-     * @param string $careLevelState Liegt ein Pflegegrad vor?
-     *
-     * @return $this
-     */
-    public function setCareLevelState($careLevelState)
-    {
-        $allowedValues = $this->getCareLevelStateAllowableValues();
-        if (!in_array($careLevelState, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'careLevelState', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['careLevelState'] = $careLevelState;
-
-        return $this;
-    }
-
-    /**
-     * Gets carePersonWeight
-     *
-     * @return string
-     */
-    public function getCarePersonWeight()
-    {
-        return $this->container['carePersonWeight'];
-    }
-
-    /**
-     * Sets carePersonWeight
-     *
-     * @param string $carePersonWeight Für welches Gewicht soll der Lift ausgelegt sein?
-     *
-     * @return $this
-     */
-    public function setCarePersonWeight($carePersonWeight)
-    {
-        $allowedValues = $this->getCarePersonWeightAllowableValues();
-        if (!in_array($carePersonWeight, $allowedValues)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'carePersonWeight', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['carePersonWeight'] = $carePersonWeight;
+        $this->container['deviceLocation'] = $deviceLocation;
 
         return $this;
     }
@@ -1164,7 +835,7 @@ class Treppenlift implements ModelInterface, ArrayAccess
     /**
      * Sets targetPerson
      *
-     * @param string $targetPerson Für wen ist der Treppenlift?
+     * @param string $targetPerson Für wen suchen Sie?
      *
      * @return $this
      */
@@ -1180,6 +851,105 @@ class Treppenlift implements ModelInterface, ArrayAccess
             );
         }
         $this->container['targetPerson'] = $targetPerson;
+
+        return $this;
+    }
+
+    /**
+     * Gets emergencyContact
+     *
+     * @return string
+     */
+    public function getEmergencyContact()
+    {
+        return $this->container['emergencyContact'];
+    }
+
+    /**
+     * Sets emergencyContact
+     *
+     * @param string $emergencyContact Wer soll im Notfall sofort erreicht werden?
+     *
+     * @return $this
+     */
+    public function setEmergencyContact($emergencyContact)
+    {
+        $allowedValues = $this->getEmergencyContactAllowableValues();
+        if (!in_array($emergencyContact, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'emergencyContact', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['emergencyContact'] = $emergencyContact;
+
+        return $this;
+    }
+
+    /**
+     * Gets urgency
+     *
+     * @return string
+     */
+    public function getUrgency()
+    {
+        return $this->container['urgency'];
+    }
+
+    /**
+     * Sets urgency
+     *
+     * @param string $urgency Wann wird das Notrufsystem benötigt?
+     *
+     * @return $this
+     */
+    public function setUrgency($urgency)
+    {
+        $allowedValues = $this->getUrgencyAllowableValues();
+        if (!in_array($urgency, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'urgency', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['urgency'] = $urgency;
+
+        return $this;
+    }
+
+    /**
+     * Gets carePersonCareLevel
+     *
+     * @return string
+     */
+    public function getCarePersonCareLevel()
+    {
+        return $this->container['carePersonCareLevel'];
+    }
+
+    /**
+     * Sets carePersonCareLevel
+     *
+     * @param string $carePersonCareLevel Liegt ein Pflegegrad vor?
+     *
+     * @return $this
+     */
+    public function setCarePersonCareLevel($carePersonCareLevel)
+    {
+        $allowedValues = $this->getCarePersonCareLevelAllowableValues();
+        if (!in_array($carePersonCareLevel, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'carePersonCareLevel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['carePersonCareLevel'] = $carePersonCareLevel;
 
         return $this;
     }
